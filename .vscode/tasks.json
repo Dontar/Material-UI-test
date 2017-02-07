@@ -23,6 +23,11 @@
 			"taskName": "build",
 			"isBuildCommand": true,
 			"args": ["run", "build"]
+		},
+		{
+			"taskName": "start",
+			"isBackground": true,
+			"args": ["run", "start"]
 		}
 	]
 }

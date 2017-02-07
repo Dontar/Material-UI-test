@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "start": "webpack-dev-server --inline --hot --content-base dist/"
   },
   "author": "Kaloyan Arsov <kaloyan.arsov@gmail.com>",
   "license": "ISC",
@@ -27,6 +28,7 @@
     "source-map-loader": "*",
     "transfer-webpack-plugin": "*",
     "typescript": "*",
-    "webpack": "*"
+    "webpack": "*",
+    "webpack-dev-server": "*"
   }
 }
