@@ -23,6 +23,10 @@ const muiTheme = getMuiTheme({
 	},
 	appBar: {
 		textColor: Colors.grey700
+	},
+	tabs: {
+		textColor: Colors.grey700,
+		selectedTextColor: Colors.blue700
 	}
 });
 

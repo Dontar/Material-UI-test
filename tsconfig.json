@@ -5,7 +5,7 @@
         "noImplicitAny": true,
         "sourceMap": true,
         "jsx": "react",
-        "outDir": "./"
+        "outDir": "./dist"
     },
     "include": [
         "./src/**/*"
