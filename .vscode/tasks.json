@@ -27,7 +27,10 @@
 		{
 			"taskName": "start",
 			"isBackground": true,
-			"args": ["run", "start"]
+			"args": ["run", "start"],
+			"problemMatcher": [
+				"$tsc-watch"
+			]
 		}
 	]
 }
