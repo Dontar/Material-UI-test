@@ -27,24 +27,24 @@ injectTapEventPlugin();
 
 var theme = [
 	Colors.grey100,
-	Colors.lightBlueA700,
-	Colors.lightBlueA400,
-	Colors.lightBlueA200,
+	Colors.lightBlue400,
+	Colors.lightBlue300,
+	Colors.lightBlue200,
 	Colors.grey800,
 	Colors.grey500,
 	Colors.grey200
 ];
 
-const muiTheme = getMuiTheme({
-	// palette: {
-		// primary1Color: theme[0],
-		// primary2Color: theme[0],
+export const muiTheme = getMuiTheme({
+	palette: {
+		primary1Color: theme[1],
+		primary2Color: theme[4],
 		// primary3Color: theme[0],
-		// accent1Color: theme[2],
-		// accent2Color: theme[0],
+		accent1Color: theme[6],
+		accent2Color: theme[0],
 		// accent3Color: theme[0],
 		// textColor: Colors.grey700
-	// },
+	},
 	// appBar: {
 	// 	textColor: theme[3]
 	// },
@@ -56,6 +56,7 @@ const muiTheme = getMuiTheme({
 	// 	backgroundColor: Colors.blue500
 	// }
 });
+console.log(muiTheme);
 
 class Main extends React.Component<undefined, undefined> {
 	render() {

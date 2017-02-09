@@ -5,6 +5,7 @@ import Logo from "./share/icons/Logo";
 import SocialPerson from "material-ui/svg-icons/social/person-outline";
 import ActionLockOutline from "material-ui/svg-icons/action/lock-outline";
 import { hashHistory } from 'react-router';
+import {muiTheme} from './Main';
 
 var isLogged: boolean = false;
 
@@ -15,7 +16,7 @@ export default class Login extends React.Component<undefined, undefined> {
 		alignItems: "center",
 		justifyContent: "center",
 		height: "100%",
-		backgroundColor: Colors.lightBlue400
+		backgroundColor: muiTheme.palette.primary1Color
 	}
 	userPanel: React.CSSProperties = {
 		display: "flex",
@@ -46,7 +47,7 @@ export default class Login extends React.Component<undefined, undefined> {
 	render() {
 		return (
 			<div style={this.mainDivStyle}>
-				<Paper style={this.userPanel}>
+				<Paper style={this.userPanel} zDepth={4}>
 					<div>
 						<Logo />
 					</div>
