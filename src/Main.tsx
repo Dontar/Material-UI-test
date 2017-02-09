@@ -14,6 +14,7 @@ import Dashboard from "./dashboard/Dashboard";
 import ManagementMain from "./management/ManagementMain";
 import NomenclaturesMain from "./nomenclatures/NomenclaturesMain";
 import PortfolioMain from "./portfolio/PortfolioMain";
+import Login from "./Login";
 
 
 
@@ -35,40 +36,37 @@ var theme = [
 ];
 
 const muiTheme = getMuiTheme({
-	palette: {
-		primary1Color: theme[0],
+	// palette: {
+		// primary1Color: theme[0],
 		// primary2Color: theme[0],
 		// primary3Color: theme[0],
-		accent1Color: theme[2],
+		// accent1Color: theme[2],
 		// accent2Color: theme[0],
 		// accent3Color: theme[0],
 		// textColor: Colors.grey700
-	},
-	appBar: {
-		textColor: theme[3]
-	},
-	tabs: {
-		textColor: theme[3],
-		selectedTextColor: theme[1],
-	},
+	// },
+	// appBar: {
+	// 	textColor: theme[3]
+	// },
+	// tabs: {
+	// 	textColor: theme[3],
+	// 	selectedTextColor: theme[1],
+	// },
 	// inkBar: {
 	// 	backgroundColor: Colors.blue500
 	// }
 });
 
 class Main extends React.Component<undefined, undefined> {
-	sideBar: SideBar;
-	onMenuClick() {
-		this.sideBar.toggleMenu();
-	}
 	render() {
-		return (
-			<div style={{ height: "100%" }}>
-				<Header onMenuClick={this.onMenuClick.bind(this)} />
-				<SideBar ref={el => this.sideBar = el} />
-				{this.props.children}
+		return Login.isLogged()?(
+			<div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
+				<Header />
+				<div style={{flex: 1}}>
+					{this.props.children}
+				</div>
 			</div>
-		);
+		):(<Login />);
 	}
 }
 
@@ -79,10 +77,10 @@ render(
 		<Router history={hashHistory}>
 			<Route path="/" component={Main}>
 				<IndexRoute component={Dashboard} />
-				<Route path="/calendar" component={Calendar} />
-				<Route path="/portfolio" component={PortfolioMain} />
-				<Route path="/management" component={ManagementMain} />
-				<Route path="/nomenclatures" component={NomenclaturesMain} />
+				<Route path="calendar" component={Calendar} />
+				<Route path="portfolio" component={PortfolioMain} />
+				<Route path="management" component={ManagementMain} />
+				<Route path="nomenclatures" component={NomenclaturesMain} />
 			</Route>
 		</Router>
 	</MuiThemeProvider>,
