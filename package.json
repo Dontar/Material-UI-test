@@ -18,6 +18,7 @@
     "material-ui": "*",
     "react": "*",
     "react-dom": "*",
+    "react-grid-layout": "*",
     "react-intl": "*",
     "react-router": "*",
     "react-tap-event-plugin": "*"
