@@ -18,6 +18,8 @@ import Login from "./Login";
 
 
 
+
+
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
@@ -56,18 +58,37 @@ export const muiTheme = getMuiTheme({
 	// 	backgroundColor: Colors.blue500
 	// }
 });
-console.log(muiTheme);
 
-class Main extends React.Component<undefined, undefined> {
+interface MainState {
+	isLogged: boolean;
+}
+
+class Main extends React.Component<undefined, MainState> {
+	constructor(props?: any, context?: any) {
+		super(props, context);
+		this.state = {
+			isLogged: false
+		}
+	}
+	private login() {
+		this.setState({
+			isLogged: true
+		});
+	}
+	private logout() {
+		this.setState({
+			isLogged: false
+		});
+	}
 	render() {
-		return Login.isLogged()?(
+		return this.state.isLogged?(
 			<div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
-				<Header />
+				<Header onLogout={this.logout.bind(this)} />
 				<div style={{flex: 1}}>
 					{this.props.children}
 				</div>
 			</div>
-		):(<Login />);
+		):(<Login onLogin={this.login.bind(this)} />);
 	}
 }
 

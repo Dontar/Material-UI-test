@@ -6,7 +6,7 @@ export default function Logo(props: any) {
 		// <SvgIcon {...props}>
 			<svg version="1.1" id="Ebene_1"
 				xmlns="http://www.w3.org/2000/svg"
-				x="0px" y="0px" width="263px" height="99px" viewBox="0 0 333 99" enable-background="new 0 0 333 99">
+				x="0px" y="0px" width="263px" height="99px" viewBox="0 0 333 99">
 				{/*<rect x="-170" y="-68" fill="#DEEAF2" width="640" height="251" />*/}
 				<g>
 					<g>

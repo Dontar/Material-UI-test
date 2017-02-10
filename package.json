@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "material-ui": "*",
+    "normalize.css": "*",
     "react": "*",
     "react-dom": "*",
     "react-grid-layout": "*",
@@ -32,7 +33,9 @@
     "@types/react-tap-event-plugin": "*",
     "@types/webpack": "*",
     "awesome-typescript-loader": "*",
+    "css-loader": "*",
     "source-map-loader": "*",
+    "style-loader": "*",
     "transfer-webpack-plugin": "*",
     "typescript": "*",
     "webpack": "*",

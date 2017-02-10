@@ -9,7 +9,11 @@ import {muiTheme} from './Main';
 
 var isLogged: boolean = false;
 
-export default class Login extends React.Component<undefined, undefined> {
+interface LoginProps {
+	onLogin: () => void;
+}
+
+export default class Login extends React.Component<LoginProps, undefined> {
 	mainDivStyle: React.CSSProperties = {
 		display: "flex",
 		flexDirection: "row",
@@ -33,17 +37,6 @@ export default class Login extends React.Component<undefined, undefined> {
 		marginTop: "20px"
 	}
 
-	static isLogged(): boolean {
-		return isLogged;
-	}
-	static logOut() {
-		isLogged = false;
-		hashHistory.push("/");
-	}
-	private login() {
-		isLogged = true;
-		hashHistory.push("/");
-	}
 	render() {
 		return (
 			<div style={this.mainDivStyle}>
@@ -65,7 +58,7 @@ export default class Login extends React.Component<undefined, undefined> {
 					<div style={{ paddingTop: "20px", display: "flex", width: "100%" }}>
 						<FlatButton label="Forgot password?" labelStyle={{color: Colors.grey400}}></FlatButton>
 						<div style={{ flex: 1 }} />
-						<FlatButton label="Login" onClick={this.login.bind(this)} />
+						<FlatButton label="Login" onClick={this.props.onLogin} />
 					</div>
 				</Paper>
 			</div>
