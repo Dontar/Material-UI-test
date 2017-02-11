@@ -16,10 +16,10 @@
   },
   "dependencies": {
     "material-ui": "*",
-    "moment": "^2.17.1",
+    "moment": "*",
     "normalize.css": "*",
     "react": "*",
-    "react-big-calendar": "^0.12.3",
+    "react-big-calendar": "*",
     "react-dom": "*",
     "react-grid-layout": "*",
     "react-intl": "*",
@@ -29,7 +29,7 @@
   "devDependencies": {
     "@types/material-ui": "*",
     "@types/react": "*",
-    "@types/react-big-calendar": "^0.11.1",
+    "@types/react-big-calendar": "*",
     "@types/react-dom": "*",
     "@types/react-intl": "*",
     "@types/react-router": "*",
