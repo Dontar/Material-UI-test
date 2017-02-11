@@ -15,10 +15,7 @@ import ManagementMain from "./management/ManagementMain";
 import NomenclaturesMain from "./nomenclatures/NomenclaturesMain";
 import PortfolioMain from "./portfolio/PortfolioMain";
 import Login from "./Login";
-
-
-
-
+require('normalize.css');
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -84,7 +81,7 @@ class Main extends React.Component<undefined, MainState> {
 		return this.state.isLogged?(
 			<div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
 				<Header onLogout={this.logout.bind(this)} />
-				<div style={{flex: 1}}>
+				<div style={{flex: 1, overflow: "hidden"}}>
 					{this.props.children}
 				</div>
 			</div>

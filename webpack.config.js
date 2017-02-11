@@ -42,13 +42,23 @@ module.exports = {
 		], path.resolve(__dirname, 'src')),
 	],
 	module: {
-		loaders: [
+		rules: [
 			// All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
-			{ test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-			{ test: /\.js$/, loader: "source-map-loader" },
-		],
-		rules : [
-			{ test: /\.css$/, use: ["style-loader", "css-loader"] }
+			{ test: /\.tsx?$/, use: "awesome-typescript-loader" },
+			{ test: /\.js$/, use: "source-map-loader" },
+			{
+				test: /\.css$/, use: [
+					{ loader: "style-loader" },
+					{
+						loader: "css-loader", options: {
+							modules: true,
+							getLocalIdent: (context, localIdentName, localName, options) => {
+								return localName;
+							}
+						}
+					}
+				]
+			}
 		]
 
 	},
