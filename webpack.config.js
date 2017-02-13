@@ -1,13 +1,13 @@
 const webpack = require('webpack');
 const path = require('path');
-const TransferWebpackPlugin = require('transfer-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const buildPath = path.resolve(__dirname, 'dist');
 
 module.exports = {
 	entry: "./src/Main.tsx",
 	output: {
-		filename: "bundle.js",
+		filename: "bundle.[hash].js",
 		path: buildPath
 	},
 
@@ -35,30 +35,19 @@ module.exports = {
 		// 	},
 		// }),
 		// Allows error warnings but does not stop compiling.
-		// new webpack.NoEmitOnErrorsPlugin(),
-		// Transfer Files
-		new TransferWebpackPlugin([
-			{ from: 'www' },
-		], path.resolve(__dirname, 'src')),
+		new webpack.NoEmitOnErrorsPlugin(),
+		new HtmlWebpackPlugin({
+			title: 'Custom template using Handlebars',
+			template: 'src/www/index.html'
+		})
 	],
 	module: {
 		rules: [
 			// All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
+			// { test: /\.html$/, loader: "html-loader" },
 			{ test: /\.tsx?$/, use: "awesome-typescript-loader" },
 			{ test: /\.js$/, use: "source-map-loader" },
-			{
-				test: /\.css$/, use: [
-					{ loader: "style-loader" },
-					{
-						loader: "css-loader", options: {
-							modules: true,
-							getLocalIdent: (context, localIdentName, localName, options) => {
-								return localName;
-							}
-						}
-					}
-				]
-			}
+			{ test: /\.css$/, use: ["style-loader", "css-loader"] }
 		]
 
 	},

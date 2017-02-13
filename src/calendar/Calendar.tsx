@@ -1,9 +1,8 @@
+import "react-big-calendar/lib/css/react-big-calendar.css";
 import * as React from "react";
 import * as BigCalendar from "react-big-calendar";
 import * as moment from 'moment';
 import { Paper } from "material-ui";
-
-require("react-big-calendar/lib/css/react-big-calendar.css");
 
 BigCalendar.momentLocalizer(moment);
 

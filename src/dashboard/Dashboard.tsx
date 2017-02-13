@@ -1,8 +1,8 @@
+import "react-grid-layout/css/styles.css";
+import "react-resizable/css/styles.css";
 import * as React from "react";
 import * as ReactGridLayout from "react-grid-layout";
 import { Paper } from "material-ui";
-require("react-grid-layout/css/styles.css");
-require("react-resizable/css/styles.css");
 
 var ReactGridLayout = ReactGridLayout.WidthProvider(ReactGridLayout);
 

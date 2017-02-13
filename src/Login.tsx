@@ -5,15 +5,20 @@ import Logo from "./share/icons/Logo";
 import SocialPerson from "material-ui/svg-icons/social/person-outline";
 import ActionLockOutline from "material-ui/svg-icons/action/lock-outline";
 import { hashHistory } from 'react-router';
-import {muiTheme} from './Main';
+import { muiTheme } from './Main';
+import { navigateTo, loginAction } from "./actions/MainActions";
 
 var isLogged: boolean = false;
 
 interface LoginProps {
-	onLogin: () => void;
 }
 
 export default class Login extends React.Component<LoginProps, undefined> {
+	constructor(props?:any, context?: any) {
+		super(props, context);
+		this.onLogin = this.onLogin.bind(this);
+	}
+
 	mainDivStyle: React.CSSProperties = {
 		display: "flex",
 		flexDirection: "row",
@@ -37,6 +42,18 @@ export default class Login extends React.Component<LoginProps, undefined> {
 		marginTop: "20px"
 	}
 
+	fldUser: TextField;
+	fldPassword: TextField;
+	fldRemeber: Checkbox;
+
+	private onLogin() {
+		loginAction({
+			user: this.fldUser.getValue(),
+			password: this.fldPassword.getValue(),
+			remember: this.fldRemeber.isChecked()
+		});
+	}
+
 	render() {
 		return (
 			<div style={this.mainDivStyle}>
@@ -46,19 +63,19 @@ export default class Login extends React.Component<LoginProps, undefined> {
 					</div>
 					<div>
 						<SocialPerson style={this.iconStyle} />
-						<TextField floatingLabelText="User name" />
+						<TextField ref={el => this.fldUser = el} floatingLabelText="User name" />
 					</div>
 					<div>
 						<ActionLockOutline style={this.iconStyle} />
-						<TextField type="password" floatingLabelText="Password" />
+						<TextField ref={el => this.fldPassword = el} type="password" floatingLabelText="Password" />
 					</div>
 					<div style={{...this.rowStyle, width: "100%"}}>
-						<Checkbox label="Remeber Me" />
+						<Checkbox ref={el => this.fldRemeber = el} label="Remeber Me" />
 					</div>
 					<div style={{ paddingTop: "20px", display: "flex", width: "100%" }}>
 						<FlatButton label="Forgot password?" labelStyle={{color: Colors.grey400}}></FlatButton>
 						<div style={{ flex: 1 }} />
-						<FlatButton label="Login" onClick={this.props.onLogin} />
+						<FlatButton label="Login" onClick={this.onLogin} />
 					</div>
 				</Paper>
 			</div>

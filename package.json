@@ -24,9 +24,11 @@
     "react-grid-layout": "*",
     "react-intl": "*",
     "react-router": "*",
+    "flux": "*",
     "react-tap-event-plugin": "*"
   },
   "devDependencies": {
+    "@types/flux": "^3.0.1",
     "@types/material-ui": "*",
     "@types/react": "*",
     "@types/react-big-calendar": "*",
@@ -37,6 +39,8 @@
     "@types/webpack": "*",
     "awesome-typescript-loader": "*",
     "css-loader": "*",
+    "html-loader": "*",
+    "html-webpack-plugin": "*",
     "source-map-loader": "*",
     "style-loader": "*",
     "transfer-webpack-plugin": "*",
